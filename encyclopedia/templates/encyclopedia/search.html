@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia - Search
+{% endblock %}
+
+{% block body %}
+    <h1>All Pages with {{ item }}</h1>
+{% if entries is not none and entries|length > 0 %}
+    <ul>
+        {% for entry in entries %}
+            <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h5>None. Try again with other key words.</h5>
+    <a href="{% url 'index' %}">See list of pages available.</a>
+{% endif %}
+{% endblock %}
