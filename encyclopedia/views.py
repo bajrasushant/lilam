@@ -21,14 +21,16 @@ def index(request):
     })
 
 def entry(request, title):
-    title1 = markdownToHtml(title)['title']
-    content = markdownToHtml(title)['content'] # checks if entry exists and can be converted
-    if content == None:
+     # checks if entry exists and can be converted
+    exists = markdownToHtml(title)
+    if exists == None:
         return render(request, "encyclopedia/error.html", {
             "title": title,
             "message": "The entry doesn't exist."
             })
     else:
+        title1 = markdownToHtml(title)['title']
+        content = markdownToHtml(title)['content']
         return render(request, "encyclopedia/entry.html", {
             "title": title1,
             "details": content
