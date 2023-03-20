@@ -1,0 +1,29 @@
+.product {
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    justify-content: center;
+    align-items: center;
+    border-color: rgb(207, 207, 207);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.product-image {
+    margin-left: 10px;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.product-creation {
+    font-size: 13px;
+    color: grey;
+}
+
+#listing-image {
+    width: 70%;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}

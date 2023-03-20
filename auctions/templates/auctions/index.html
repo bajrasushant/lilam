@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+<!-- this is used as a template for both watchlist and even index -->
+{% block body %}
+
+    <h2>{{ message }}</h2>
+    <!-- If there are no listings to show show none -->
+    {% if listings|length == 0 %}
+       <ul>
+        <li><h2>None</h2></li>
+       </ul>
+       
+    {% else %}
+        {% for items in listings %}
+        <div class="product">
+            <div>
+                <img class="product-image" src="{{ items.image }}" alt="Image for {{ items.title }}">
+            </div>
+            <div class="product-body" style="margin-top: 10px">
+                <h4 class="card-title">{{ items.title }}</h4>
+                <p class="card-text"><strong>Price:</strong> ${{ items.price.amount }}</p>
+                <p class="card-text">{{ items.description }}</p>
+                <p class="product-creation">Item listed on {{ items.creation }}.</p>
+                <a href="{% url 'listings' id=items.id %}" class="btn btn-primary">View Item Listing</a>
+            </div>
+        </div>
+        <br/>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
