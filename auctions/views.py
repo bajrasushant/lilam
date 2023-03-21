@@ -212,11 +212,12 @@ def seeWatchlist(request):
     # returns the watchlist in index.html
     listing = Listings.objects.filter(is_active=True, watchlist=request.user)
     return render(request, "auctions/index.html", {
-        "listings": listing,
-        "message": "Watchlist",
-        "categories": Category.objects.all()
-    })
+    "listings": listing,
+    "message": "Watchlist",
+    "categories": Category.objects.all()
+})
 
+    
 def display_category(request, category):
     # displays the selected category listings when a certain is clicked from the drop down
     return render(request, "auctions/index.html", {
